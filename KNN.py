@@ -10,9 +10,10 @@ import matplotlib.pyplot as plt
 from sklearn.utils import resample
 
 # Function to process each dataset
-def process_dataset(file_name, target_column, dataset_name):
+def run_knn_model(file_name, target_column, dataset_name):
 
     print("Dataset:", dataset_name)
+    print("-------------------------")
 
     #Load dataset
     df = pd.read_csv(file_name)
@@ -24,8 +25,7 @@ def process_dataset(file_name, target_column, dataset_name):
     df = df.dropna()
 
     #Check class balance
-    print("\nClass distribution:")
-    print(df[target_column].value_counts())
+    df[target_column].value_counts()
 
     #Split features and target
     X = df.drop(target_column, axis=1)
@@ -79,13 +79,22 @@ def process_dataset(file_name, target_column, dataset_name):
         roc_auc = roc_auc_score(y_test, y_prob[:, 1])
 
     # 10. Print results
-    print("\nResults:")
+    print("Results:")
     print("Accuracy:", round(accuracy, 4))
     print("Precision:", round(precision, 4))
     print("Recall:", round(recall, 4))
     print("F1 Score:", round(f1, 4))
     print("ROC-AUC:", round(roc_auc, 4))
+    print("-----------------------------------\n")
 
     # Return results for comparison
     return [dataset_name, accuracy, precision, recall, f1, roc_auc]
+
+
+# Load all 3 datasets
+data1 ="diabetes_012_health_indicators_BRFSS2015.csv"
+data2 ="diabetes_binary_5050split_health_indicators_BRFSS2015.csv"
+data3="diabetes_binary_health_indicators_BRFSS2015.csv"
+
+
 
