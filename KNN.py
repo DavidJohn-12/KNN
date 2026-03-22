@@ -105,5 +105,10 @@ results.append(run_knn_model(data2, "Diabetes_binary", "Balanced Dataset"))
 results.append(run_knn_model(data3, "Diabetes_binary", "Binary Dataset"))
 
 
+# Compare Results
+results_df = pd.DataFrame(results)
+print("\nFinal Comparison Table")
+print("-" *75 )
+print(results_df)
 
 
