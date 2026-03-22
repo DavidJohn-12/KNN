@@ -1,4 +1,4 @@
-# Diabetes Prediction using K-Nearest Neighbors
+# Diabetes Prediction(K-Nearest Neighbors Model)
 # Import libraries
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -31,7 +31,7 @@ def run_knn_model(file_name, target_column, dataset_name):
     X = df.drop(target_column, axis=1)
     y = df[target_column]
 
-    # 5. Train-test split (80/20)
+    #Train-test split (80/20)
     X_train, X_test, y_train, y_test = train_test_split(X, y ,test_size=0.20, random_state=42)
 
     #HANDLING IMBALANCE
@@ -78,7 +78,7 @@ def run_knn_model(file_name, target_column, dataset_name):
     else:
         roc_auc = roc_auc_score(y_test, y_prob[:, 1])
 
-    # 10. Print results
+    #Print results
     print("Results:")
     print("Accuracy:", round(accuracy, 4))
     print("Precision:", round(precision, 4))
