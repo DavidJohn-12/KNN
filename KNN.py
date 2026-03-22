@@ -53,20 +53,20 @@ def process_dataset(file_name, target_column, dataset_name):
     X_train = train_balanced.drop(target_column, axis=1)
     y_train = train_balanced[target_column]
 
-    # 6. Feature scaling
+    #Feature scaling
     scaler = StandardScaler()
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
-    # 7. Train KNN model
+    #Train KNN model
     knn = KNeighborsClassifier(n_neighbors=5)
     knn.fit(X_train, y_train)
 
-    # 8. Predictions
+    #Predictions
     y_pred = knn.predict(X_test)
     y_prob = knn.predict_proba(X_test)
 
-    # 9. Evaluation
+    #Evaluation
     accuracy = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred, average="weighted")
     recall = recall_score(y_test, y_pred, average="weighted")
