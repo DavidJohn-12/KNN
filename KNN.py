@@ -97,4 +97,13 @@ data2 ="diabetes_binary_5050split_health_indicators_BRFSS2015.csv"
 data3="diabetes_binary_health_indicators_BRFSS2015.csv"
 
 
+# Run models on each dataset
+results = []
+results.append(["Dataset", "Accuracy", "Precision", "Recall", "F1", "ROC_AUC",])
+results.append(run_knn_model(data1, "Diabetes_012", "Original Dataset"))
+results.append(run_knn_model(data2, "Diabetes_binary", "Balanced Dataset"))
+results.append(run_knn_model(data3, "Diabetes_binary", "Binary Dataset"))
+
+
+
 
