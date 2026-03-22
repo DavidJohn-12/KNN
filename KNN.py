@@ -8,3 +8,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 
+
+#Load the datasets
+df1 = pd.read_csv("diabetes_012_health_indicators_BRFSS2015.csv")
+df2 = pd.read_csv("diabetes_012_health_indicators_BRFSS2015_balanced.csv")
+df3 = pd.read_csv("diabetes_binary_health_indicators_BRFSS2015.csv")
